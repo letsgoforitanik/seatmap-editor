@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Seatmap Experiment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLES -->
+    <link href="styles/jquery-ui.css" rel="stylesheet" />
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="styles/all.css" rel="stylesheet" />
+    <link href="styles/theme.css" rel="stylesheet" />
+    <link href="styles/preloader.css" rel="stylesheet" />
+    <link href="styles/style.css" rel="stylesheet" />
+
+    <!-- SCRIPTS -->
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/bootstrap.bundle.js"></script>
+    <script src="scripts/bootstrap-select.min.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/two.js"></script>
+    <script src="scripts/panzoom.min.js"></script>
+    <script src="scripts/mdc.snackbar.js"></script>
+    <script src="scripts/jsonc.min.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/editor.js" type="module"></script>
+
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark ticket-select">
+
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+
+            <ul class="navbar-nav mr-auto" id="ulFunctionality">
+
+                <li class="nav-item seatmap-setup">
+                    <a class="nav-link">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>Seatmap Setup</span>
+                    </a>
+                </li>
+
+                <li class="nav-item import-image">
+                    <a class="nav-link">
+                        <i class="fas fa-file-image"></i>
+                        <span>Import Image</span>
+                    </a>
+                </li>
+
+                <li class="nav-item fit-to-screen" title="Ctrl+C">
+                    <a class="nav-link">
+                        <i class="fas fa-expand"></i>
+                        <span>Fit to Screen</span>
+                    </a>
+                </li>
+
+                <li class="nav-item draw-shape">
+                    <a class="nav-link">
+                        <i class="fas fa-draw-polygon"></i>
+                        <span>Draw Shape</span>
+                    </a>
+                </li>
+
+                <li class="nav-item show-grid">
+                    <a class="nav-link">
+                        <i class="fas fa-border-all"></i>
+                        <span>Show Grid</span>
+                    </a>
+                </li>
+
+                <li class="nav-item preview">
+                    <a class="nav-link">
+                        <i class="fas fa-eye"></i>
+                        <span>Preview</span>
+                    </a>
+                </li>
+
+                <li class="nav-item save">
+                    <a class="nav-link">
+                        <i class="fas fa-save"></i>
+                        <span>Save</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    </nav>
+
+    <!-- WRAPPER -->
+    <div id="wrapper" class="toggled">
+
+        <!-- SIDE BAR -->
+        <div id="sidebar-wrapper" class="side-bar">
+
+            <ul class="sidebar-nav" id="ulBgImageFunctionality">
+                <li class="sidebar-brand">Background Image</li>
+
+                <li class="function">
+                    <button class="btn btn-primary btn-sm" id="btnChooseImage">Choose Image</button>
+                    <button class="btn btn-dark btn-sm" id="btnCancelImage">Cancel</button>
+                </li>
+
+                <li class="function">
+                    <div class="form-group row">
+                        <label for="divBgImageScalingSlider" class="col-sm-12 col-form-label">Scale</label><br />
+                        <div class="col-sm-12">
+                            <div id="divBgImageScalingSlider"></div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="function rm-background">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary btn-sm btn-func" id="btnRemoveBgImage">Remove Background Image</button>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul id="ulSeatmapSetupFunctionality" class="sidebar-nav">
+
+                <li class="sidebar-brand">Seatmap Dimension</li>
+
+                <li class="function seatmap-width">
+                    <div class="form-group row">
+                        <label for="txtSeatmapWidth" class="col-sm-5 col-form-label">Width</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="txtSeatmapWidth">
+                            <span class="user-unit">px</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="function seatmap-height">
+                    <div class="form-group row">
+                        <label for="txtSeatmapHeight" class="col-sm-5 col-form-label">Height</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="txtSeatmapHeight">
+                            <span class="user-unit">px</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="function maintain-ratio">
+                    <div class="switch-container">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="cbMaintainRatio">
+                            <label class="custom-control-label" for="cbMaintainRatio">Maintain Ratio</label>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="function">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary btn-sm btn-func" id="btnApplyToSeatmap">Apply</button>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- SEATMAP CONTAINER -->
+        <div id="page-content-wrapper">
+            <div id="seatmap">
+                <div class="background-layer">
+                    <input type="file" id="fuChangeImage" hidden accept="image/*" />
+                    <img id="background-image" />
+                </div>
+                <div class="grid-layer">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- SMALL PATTERN -->
+                            <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="gray" stroke-width="0.5" />
+                            </pattern>
+                            <!-- LARGE PATTERN -->
+                            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <rect width="80" height="80" fill="url(#smallGrid)" />
+                                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="gray" stroke-width="1" />
+                            </pattern>
+                        </defs>
+
+                        <rect width="100%" height="100%" fill="url(#smallGrid)" />
+                    </svg>
+                </div>
+                <div class="foreground-layer">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SNACKBARS -->
+    <div class="mdc-snackbar">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite"></div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>DISMISS
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRELOADERS -->
+    <section class="wrapper dark preloader">
+        <div class="spinner-n-text">
+            <div class="spinner">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+            <div class="text">Loading Seatmap, Please Wait...</div>
+        </div>
+    </section>
+
+    <!-- INFO MENU -->
+    <div id="divInfoMenu">
+        <div class="head">
+            <div class="h-seat-type">
+                <i class="fas fa-th"></i>
+                <span>Seat</span>
+            </div>
+            <div class="h-zone-type">
+                <i class="fas fa-vector-square"></i>
+                <span>Zone</span>
+            </div>
+            <div class="h-dot-type">
+                <i class="fa fa-users"></i>
+                <span>Dots</span>
+            </div>
+        </div>
+        <div class="body">
+            <div class="seat-type">
+                <div class="item">
+                    <span>Title</span>
+                    <input type="text" class="title" />
+                </div>
+
+                <div class="item">
+                    <span>Row No.</span>
+                    <input type="text" class="rowno" />
+                </div>
+
+                <div class="item">
+                    <span>Zone No.</span>
+                    <input type="text" class="zoneno" />
+                </div>
+
+                <div class="item">
+                    <span>Description</span>
+                    <textarea class="description" rows="2"></textarea>
+                </div>
+
+                <div class="item booking">
+                    <label class="styled-radio">
+                        <input type="radio" name="group" class="bookable" />
+                        <span>Bookable</span>
+                    </label>
+
+                    <label class="styled-radio">
+                        <input type="radio" name="group" class="reserved" />
+                        <span>Reserved</span>
+                    </label>
+                </div>
+
+                <div class="item cause">
+                    <span>Cause</span>
+                    <input type="text" class="cause" />
+                </div>
+
+                <div class="item price">
+                    <span>Price</span>
+                    <select class="price" title="Browse"></select>
+                </div>
+
+            </div>
+
+            <div class="zone-type">
+                <div class="item">
+                    <span>Title</span>
+                    <input type="text" class="title" />
+                </div>
+                <div class="item">
+                    <span>Description</span>
+                    <textarea class="description" rows="2"></textarea>
+                </div>
+                <div class="item">
+                    <span>Capacity</span>
+                    <input type="text" class="capacity" />
+                </div>
+                <div class="item">
+                    <span>Bookable</span>
+                    <input type="text" class="bookable" />
+                </div>
+                <div class="item">
+                    <span>Reserved</span>
+                    <input type="text" class="reserved" readonly />
+                </div>
+                <div class="item price">
+                    <span>Price</span>
+                    <select class="price" title="Browse"></select>
+                </div>
+            </div>
+
+            <div class="dot-type"></div>
+
+            <div class="item">
+                <button id="btnSave">Save</button>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="menu lock">Lock</div>
+            <div class="menu clone">Clone</div>
+            <div class="menu remove">Remove</div>
+        </div>
+    </div>
+
+</body>
+</html>

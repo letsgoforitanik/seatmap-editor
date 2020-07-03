@@ -1,0 +1,656 @@
+﻿@import 'mdc.button.css';
+@import 'mdc.snackbar.css';
+
+
+svg.section {
+    border: 1px solid #cecdcd;
+    display: block;
+    cursor: pointer;
+    margin: 0;
+}
+
+g.row >
+path.visual {
+    fill: none;
+}
+
+g.cell >
+circle.visual {
+    fill: #ffffff00;
+    stroke: #cecdcd;
+}
+
+g.table >
+rect.visual {
+    fill: #ffffff00;
+    stroke: black;
+}
+
+g.table >
+polygon.visual {
+    fill: #ffffff00;
+    stroke: black;
+}
+
+g.table >
+circle.visual {
+    fill: #ffffff00;
+    stroke: black;
+}
+
+g.seats >
+polygon.seat {
+    fill: #ffffff00;
+    stroke: black;
+}
+
+
+.section-container {
+    width: fit-content;
+    height: fit-content;
+}
+
+
+
+.seatmap {
+    width: 100%;
+    height: 100vh;
+    background: azure;
+}
+
+
+body {
+    overflow: hidden;
+}
+
+
+.ticket-select
+.nav-item:hover {
+    margin: 0 !important;
+}
+
+
+#ulFunctionality {
+    cursor: pointer;
+}
+
+
+input[hidden] {
+    display: none;
+}
+
+
+
+
+#seatmap {
+    position: relative;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), inset 0 -1px 0 0 #dadce0;
+    background: rgb(245, 245, 245);
+    overflow: hidden;
+}
+
+    #seatmap > div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+        #seatmap > div.foreground-layer > svg {
+            cursor: grab;
+        }
+
+
+.background-layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+img#background-image {
+    width: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sidebar-nav {
+    display: none;
+}
+
+
+#wrapper {
+    width: 100%;
+    height: calc(100vh - 74px);
+    overflow: hidden;
+    position: relative;
+    background: #989898;
+}
+
+    #wrapper label {
+        line-height: 15px;
+    }
+
+
+#sidebar-wrapper {
+    position: absolute;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), inset 0 -1px 0 0 #dadce0;
+    background: white !important;
+    overflow: hidden;
+    top: 0 !important
+}
+
+
+#page-content-wrapper {
+    padding: 0 !important;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #989898;
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.navbar.ticket-select {
+    background: black;
+}
+
+.sidebar-nav
+li.function {
+    padding: 0px 18px !important;
+    text-indent: 0 !important;
+}
+
+
+
+.slider {
+    width: 100%;
+    margin: 0px 14px;
+}
+
+#btnApplyToSection {
+    margin-left: auto;
+    margin-right: 13px;
+    margin-top: 3px;
+}
+
+.sidebar-nav > li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav
+input[type=text] {
+    height: 30px !important;
+}
+
+
+.active {
+    color: #0165D8;
+    background: white;
+    margin: 0px !important;
+}
+
+
+.grid-layer {
+    display: none;
+}
+
+.btn-func {
+    width: 100% !important;
+}
+
+
+span.user-unit {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    height: 30px;
+    line-height: 30px;
+    width: 33px;
+    text-align: center;
+}
+
+#ulSeatmapSetupFunctionality
+input[type=text] {
+    padding-right: 30px !important;
+}
+
+.switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.custom-switch {
+    display: flex;
+    align-items: center;
+}
+
+    .custom-switch
+    .custom-control-label::before {
+        top: 0;
+    }
+
+    .custom-switch
+    .custom-control-label::after {
+        top: 2px;
+    }
+
+    .custom-switch
+    label {
+        cursor: pointer;
+        line-height: 16px !important;
+    }
+
+
+#btnChooseImage {
+    margin-right: 2px;
+}
+
+
+.ui-slider-horizontal {
+    height: 5px !important;
+}
+
+    .ui-slider-horizontal
+    .ui-slider-handle {
+        top: -7px;
+        border-radius: 50%;
+        outline: none;
+    }
+
+
+#ulSectionFunctionality {
+    overflow-y: hidden;
+    height: 100%;
+}
+
+
+    #ulSectionFunctionality:hover {
+        overflow: overlay;
+    }
+
+    #ulSectionFunctionality::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    #ulSectionFunctionality::-webkit-scrollbar-track {
+        background: white;
+    }
+
+    #ulSectionFunctionality::-webkit-scrollbar-thumb {
+        background: #8c8c8c;
+    }
+
+
+#btnCloneSection {
+    margin-top: 32px;
+    margin-bottom: -10px;
+}
+
+#ulSectionFunctionality
+li.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 18px;
+    text-indent: 0px !important;
+}
+
+
+#ulCellFunctionality
+li.table-properties {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 0 !important;
+}
+
+label[for=cbBringTable]::before {
+    top: -7px !important;
+    left: -6px !important;
+}
+
+label[for=cbBringTable]::after {
+    top: -5px !important;
+    left: -4px !important;
+}
+
+.custom-radio
+label {
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+div.table-type {
+    margin-bottom: 20px;
+}
+
+div.table-seats {
+    margin-bottom: 25px;
+}
+
+div.table-type >
+div.heading {
+    margin-bottom: 10px;
+}
+
+#liTableFunctions {
+    padding: 24px 18px !important;
+}
+
+
+#ulCellFunctionality::-webkit-scrollbar {
+    width: 4px;
+}
+
+#ulCellFunctionality::-webkit-scrollbar-thumb {
+    background: #8c8c8c;
+}
+
+#ulCellFunctionality::-webkit-scrollbar-track {
+    background: white;
+}
+
+#ulCellFunctionality {
+    overflow-y: hidden;
+    height: 100%;
+}
+
+    #ulCellFunctionality:hover {
+        overflow-y: overlay;
+    }
+
+li.paste-info {
+    margin-top: -14px;
+}
+
+
+li.copy-info {
+    margin-top: 40px;
+}
+
+.preview {
+    border: 1px solid #ffffff00 !important;
+    stroke: none !important;
+    outline: none !important;
+    cursor: auto !important;
+}
+
+
+li.rm-background {
+    margin-top: 30px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+
+#ulSeatPrices {
+    position: absolute;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 145px;
+    border-bottom: none;
+    cursor: pointer;
+    background: aliceblue;
+    top: 0;
+    display: none;
+}
+
+    #ulSeatPrices li {
+        display: flex;
+        padding-left: 5px;
+        align-items: center;
+        height: 23px;
+    }
+
+    #ulSeatPrices > li
+    div.color {
+        height: 10px;
+        width: 10px;
+        margin-right: 7px;
+    }
+
+    #ulSeatPrices > li
+    span.description {
+        margin-right: 5px;
+    }
+
+
+    #ulSeatPrices > li:hover {
+        color: white;
+        background-color: blue;
+    }
+
+polygon.seat.selected,
+polygon.seat.booked {
+    fill: orange !important;
+    stroke: orange !important;
+}
+
+.additional {
+    padding: 0 !important;
+    height: 100vh !important;
+}
+
+#btnSaveSeatmapState,
+#btnFitToScreen {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #49494a;
+    color: white;
+    z-index: 100;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0,0,0,.12);
+    outline: none;
+}
+
+#btnFitToScreen {
+    bottom: 60px;
+}
+
+    #btnSaveSeatmapState > span,
+    #btnFitToScreen > span {
+        margin-top: 2px;
+    }
+
+
+#divInfoMenu {
+    width: 250px;
+    height: auto;
+    position: absolute;
+    z-index: 1000 !important;
+    background-color: white;
+    top: 0;
+    font-size: 12px;
+    border-radius: 1px;
+    cursor: pointer;
+    display: none;
+    border: 1px solid #e7e7e7;
+}
+
+    #divInfoMenu > .head {
+        display: flex;
+        background: #f3f3ed;
+    }
+
+        #divInfoMenu >
+        .head > div {
+            flex-grow: 1;
+            flex-basis: 0;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+            display: flex;
+        }
+
+            #divInfoMenu > .head > div > i {
+                color: #0175f1;
+                margin-right: 4px;
+            }
+
+            #divInfoMenu > .head > div > span {
+                font-weight: 600;
+            }
+
+    #divInfoMenu
+    input[type=text] {
+        width: 150px;
+        height: 20px;
+        border: 1px solid black;
+    }
+
+    #divInfoMenu
+    textarea {
+        width: 150px;
+        resize: none;
+        border: 1px solid black;
+    }
+
+    #divInfoMenu > .body {
+        padding: 10px 10px;
+        border-bottom: 1px solid #e9ecef;
+        margin-bottom: 10px;
+    }
+
+    #divInfoMenu > div.foot {
+        margin-bottom: 10px;
+    }
+
+    #divInfoMenu .item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7px;
+    }
+
+        #divInfoMenu .item.booking {
+            padding: 0px 17px;
+            margin-top: 15px;
+        }
+
+    #divInfoMenu div.menu {
+        height: 25px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+        #divInfoMenu div.menu:hover {
+            background-color: #0175f1;
+            color: white;
+        }
+
+
+label.styled-radio >
+input[type=radio] {
+    display: none;
+}
+
+label.styled-radio > span {
+    padding-left: 17px;
+    position: relative;
+}
+
+label.styled-radio >
+input[type=radio] + span::before {
+    content: '';
+    background: none;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #0175f1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+label.styled-radio >
+input[type=radio]:checked + span::before {
+    border: none;
+    background: #0175f1;
+}
+
+div.price-item {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 134px;
+    font-size: 12px;
+}
+
+    div.price-item >
+    span.color-code {
+        height: 10px;
+        width: 10px;
+        margin-right: 10px;
+    }
+
+    div.price-item >
+    span.price {
+        margin-left: auto;
+    }
+
+
+div.dropdown {
+    width: 150px !important;
+    height: 22px;
+}
+
+    div.dropdown > button {
+        height: 100%;
+        font-size: 12px;
+        border-radius: 0;
+        border: 1px solid black !important;
+        padding: 0px;
+        background: white !important;
+        box-shadow: none !important;
+    }
+
+    div.dropdown >
+    div.dropdown-menu {
+        width: 150px;
+        border-radius: 0px;
+        border: 1px solid black;
+    }
+
+    div.dropdown
+    a.dropdown-item {
+        padding: 0 !important;
+    }
+
+        div.dropdown
+        a.dropdown-item >
+        span.text {
+            width: 100% !important;
+        }
+
+#btnSave {
+    background-color: #0175f1;
+    color: white;
+    border: none;
+    margin-left: auto;
+    margin-top: 5px;
+    width: 50px;
+}

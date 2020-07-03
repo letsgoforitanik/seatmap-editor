@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Seatmap Experiment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLES -->
+    <link href="styles/jquery-ui.css" rel="stylesheet" />
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="styles/all.css" rel="stylesheet" />
+    <link href="styles/theme.css" rel="stylesheet" />
+    <link href="styles/preloader.css" rel="stylesheet" />
+    <link href="styles/style.css" rel="stylesheet" />
+    <link href="styles/customerend.css" rel="stylesheet" />
+
+    <!-- SCRIPTS -->
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/bootstrap.bundle.js"></script>
+    <script src="scripts/bootstrap-select.min.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/two.js"></script>
+    <script src="scripts/panzoom.min.js"></script>
+    <script src="scripts/mdc.snackbar.js"></script>
+    <script src="scripts/jsonc.min.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/customerend.js" type="module"></script>
+
+</head>
+<body>
+
+    <!-- WRAPPER -->
+    <div id="wrapper" class="toggled">
+
+        <!-- SEATMAP CONTAINER -->
+        <div id="page-content-wrapper">
+            <div id="seatmap">
+                <div class="background-layer">
+                    <input type="file" id="fuChangeImage" hidden accept="image/*" />
+                    <img id="background-image" />
+                </div>
+                <div class="grid-layer">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- SMALL PATTERN -->
+                            <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="gray" stroke-width="0.5" />
+                            </pattern>
+                            <!-- LARGE PATTERN -->
+                            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <rect width="80" height="80" fill="url(#smallGrid)" />
+                                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="gray" stroke-width="1" />
+                            </pattern>
+                        </defs>
+
+                        <rect width="100%" height="100%" fill="url(#smallGrid)" />
+                    </svg>
+                </div>
+                <div class="foreground-layer">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SNACKBARS -->
+    <div class="mdc-snackbar">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite"></div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>DISMISS
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRELOADERS -->
+    <section class="wrapper dark preloader">
+        <div class="spinner-n-text">
+            <div class="spinner">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+            <div class="text">Loading Seatmap, Please Wait...</div>
+        </div>
+    </section>
+
+
+    <!-- INFO MENU -->
+    <div id="divInfoMenu">
+        <div class="head">
+            <div class="h-seat-type">
+                <i class="fas fa-th"></i>
+                <span>Seat</span>
+            </div>
+            <div class="h-zone-type">
+                <i class="fas fa-vector-square"></i>
+                <span>Zone</span>
+            </div>
+            <div class="h-dot-type">
+                <i class="fa fa-users"></i>
+                <span>Dots</span>
+            </div>
+        </div>
+        <div class="body">
+            <div class="seat-type">
+                <div class="item">
+                    <span>Title</span>
+                    <input type="text" class="title" />
+                </div>
+
+                <div class="item">
+                    <span>Row No.</span>
+                    <input type="text" class="rowno" />
+                </div>
+
+                <div class="item">
+                    <span>Zone No.</span>
+                    <input type="text" class="zoneno" />
+                </div>
+
+                <div class="item">
+                    <span>Description</span>
+                    <textarea class="description" rows="2"></textarea>
+                </div>
+
+                <div class="item booking">
+                    <label class="styled-radio">
+                        <input type="radio" name="group" class="bookable" />
+                        <span>Bookable</span>
+                    </label>
+
+                    <label class="styled-radio">
+                        <input type="radio" name="group" class="reserved" />
+                        <span>Reserved</span>
+                    </label>
+                </div>
+
+                <div class="item cause">
+                    <span>Cause</span>
+                    <input type="text" class="cause" />
+                </div>
+
+                <div class="item price">
+                    <span>Price</span>
+                    <select class="price" title="Browse"></select>
+                </div>
+
+            </div>
+
+            <div class="zone-type">
+                <div class="item">
+                    <span>Title</span>
+                    <input type="text" class="title" />
+                </div>
+                <div class="item">
+                    <span>Description</span>
+                    <textarea class="description" rows="2"></textarea>
+                </div>
+                <div class="item">
+                    <span>Capacity</span>
+                    <input type="text" class="capacity" />
+                </div>
+                <div class="item">
+                    <span>Bookable</span>
+                    <input type="text" class="bookable" />
+                </div>
+                <div class="item">
+                    <span>Reserved</span>
+                    <input type="text" class="reserved" readonly />
+                </div>
+                <div class="item price">
+                    <span>Price</span>
+                    <select class="price" title="Browse"></select>
+                </div>
+            </div>
+
+            <div class="dot-type"></div>
+
+            <div class="item">
+                <button id="btnSave">Save</button>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="menu lock">Lock</div>
+            <div class="menu clone">Clone</div>
+            <div class="menu remove">Remove</div>
+        </div>
+    </div>
+
+    <!-- TOOLTIP -->
+    <div id="tooltip"></div>
+
+</body>
+</html>
